@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="nav">
+        <a class="qwe" href="#home" id="home-nav">Home</a>
+        <a class="qwe" href="#about" id="about-nav">About</a>
+        <a class="qwe" href="#skills" id="skills-nav">Skills</a>
+        <a class="qwe" href="#contact" id="contact-nav">Contact</a>
+    </div>
+
+    <div class="section box fade-in" id="home">
+        <div class="asd" id="typing"></div>
+    </div>
+
+    <div class="section about fade-in" id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>
+                저는 웹 개발자를 꿈 꾸고 있는 양선민 입니다.아직 서툴지만 계속 공부하여 웹 개발자가 되어서 사용자가 편하게 쓸 수 있게 만들 수 있는 개발자가 되기 위해 항상 노력할 것 입니다.<br>
+                그리고 지금 정보처리기능사 실기를 준비하고 있습니다.
+            </p>
+        </div>
+    </div>
+
+    <div class="section skills fade-in" id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>
+                <h4>JavaScript</h4>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%" data-progress="40%"></div>
+                </div>
+            </li>
+            <li>
+                <h4>Java</h4>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 10%" data-progress="10%"></div>
+                </div>
+            </li>
+            <li>
+                <h4>HTML & CSS</h4>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%" data-progress="70%"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section contact fade-in" id="contact">
+        <h2>Contact</h2>
+        <div class="social-links">
+            <a href="https://www.instagram.com/sxn_m1n.08/" target="_blank">Instagram</a>
+            <i class="1 fa-2xl" style="color: #ffffff;"></i>
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            <i class="1 fa-2xl"></i>
+            <span id="email-link">08114ysm@gmail.com</span>
+            <i class="1 fa-2xl"></i>
+        </div>
+    </div>
+    
+    
+    <script>
+        
+        const typingElement = document.getElementById("typing");
+        const text = "안녕하세요, 저는 웹 개발자를 꿈 꾸고 있는 양선민 입니다.";
+        let index = 0;
+    
+        function typeEffect() {
+            if (index < text.length) {
+                typingElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+        window.addEventListener('DOMContentLoaded', typeEffect);
+    
+        const emailLink = document.getElementById("email-link");
+    
+        emailLink.addEventListener('mouseover', function() {
+            emailLink.style.fontSize = '30px';
+            emailLink.style.transition = 'font-size 0.3s ease';
+        });
+    
+        emailLink.addEventListener('mouseout', function() {
+            emailLink.style.fontSize = '24px';
+            emailLink.style.transition = 'font-size 0.3s ease';
+        });
+    
+        // fade-in 애니메이션 관찰
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+    
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+    
+</body>
+
+</html>
